@@ -202,14 +202,14 @@ const PortraitCertificate = () => {
           {/* Director Signature */}
           <div className="text-center flex-1 max-w-[220px]">
             {directorSignature ? (
-              <img src={directorSignature.dataUrl} alt="Director Signature" className="h-12 object-contain mx-auto mb-1.5" />
+              <img src={directorSignature.dataUrl} alt="Managing Director" className="h-12 object-contain mx-auto mb-1.5" />
             ) : (
               <div className="h-12 flex items-end justify-center mb-1.5">
                 <div className="w-32 border-b-2" style={{ borderColor: '#D1D5DB' }} />
               </div>
             )}
-            <p className="text-xs font-bold uppercase tracking-wider" style={{ color: '#4B5563' }}>Director Signature</p>
-            <p className="text-[20px]" style={{ color: '#9CA3AF' }}>Director</p>
+            <p className="text-xs font-bold uppercase tracking-wider" style={{ color: '#4B5563' }}>Managing Director</p>
+            <p className="text-[20px]" style={{ color: '#9CA3AF' }}>Managing Director</p>
           </div>
         </div>
 
