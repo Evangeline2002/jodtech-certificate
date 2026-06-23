@@ -12,9 +12,13 @@ const injectFonts = (doc) => new Promise((resolve) => {
   const link = doc.createElement('link');
   link.rel = 'stylesheet';
   link.href = FONTS_LINK;
-  link.onload = () => {
-    // After stylesheet loaded, wait a tick for fonts to apply
-    setTimeout(resolve, 300);
+  link.onload = async () => {
+    try {
+      await doc.fonts.ready;
+      setTimeout(resolve, 200);
+    } catch {
+      setTimeout(resolve, 500);
+    }
   };
   link.onerror = () => resolve();
   doc.head.appendChild(link);
@@ -57,9 +61,8 @@ export const exportPdf = async (elementId, filename) => {
     const imgData = canvas.toDataURL('image/png');
     const pdf = new jsPDF({
       orientation: 'portrait',
-      unit: 'px',
-      format: [794, 1123],
-      hotfixes: ['px_scaling'],
+      unit: 'mm',
+      format: 'a4',
     });
 
     const pdfWidth = pdf.internal.pageSize.getWidth();

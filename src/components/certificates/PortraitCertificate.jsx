@@ -198,22 +198,9 @@ const PortraitCertificate = () => {
         </div>
 
         {/* ===== SIGNATURE AREA ===== */}
-        <div className="flex items-end justify-between px-4 pt-4 pb-2">
-          {/* HR Signature */}
-          <div className="text-center flex-1">
-            {hrSignature ? (
-              <img src={hrSignature.dataUrl} alt="HR Signature" className="h-12 object-contain mx-auto mb-1.5" />
-            ) : (
-              <div className="h-12 flex items-end justify-center mb-1.5">
-                <div className="w-32 border-b-2" style={{ borderColor: '#D1D5DB' }} />
-              </div>
-            )}
-            <p className="text-xs font-bold uppercase tracking-wider" style={{ color: '#4B5563' }}>HR Signature</p>
-            <p className="text-[20px]" style={{ color: '#9CA3AF' }}>HR Manager</p>
-          </div>
-
+        <div className="flex items-end justify-center px-4 pt-4 pb-2">
           {/* Director Signature */}
-          <div className="text-center flex-1">
+          <div className="text-center flex-1 max-w-[220px]">
             {directorSignature ? (
               <img src={directorSignature.dataUrl} alt="Director Signature" className="h-12 object-contain mx-auto mb-1.5" />
             ) : (
