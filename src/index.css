@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  font-family: 'Poppins', 'Times New Roman', Times, serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@theme {
+  --color-jod-navy: #0A2540;
+  --color-jod-blue: #007BFF;
+  --color-jod-gold: #FFD700;
+  --color-jod-emerald: #0F766E;
+  --color-jod-dark-green: #065F46;
+  --color-jod-premium-gold: #D4AF37;
+}
+
+@media print {
+  body {
+    background: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  #certificate-download {
+    box-shadow: none !important;
+    margin: 0 auto !important;
+    width: 794px !important;
+    height: 1123px !important;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  svg, img {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+}
+
+/* Scrollbar for preview area */
+.preview-area::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.preview-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+.preview-area::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+.preview-area::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Scrollbar for sidebar */
+.sidebar-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+/* Rich text editor placeholder */
+[contenteditable]:empty:before {
+  content: attr(data-placeholder);
+  color: #bbb;
+  pointer-events: none;
+}
