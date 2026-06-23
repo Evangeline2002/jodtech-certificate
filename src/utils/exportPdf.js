@@ -6,23 +6,7 @@ const showError = (message) => {
   document.dispatchEvent(event);
 };
 
-const FONTS_LINK = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap';
-
-const injectFonts = (doc) => new Promise((resolve) => {
-  const link = doc.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = FONTS_LINK;
-  link.onload = async () => {
-    try {
-      await doc.fonts.ready;
-      setTimeout(resolve, 200);
-    } catch {
-      setTimeout(resolve, 500);
-    }
-  };
-  link.onerror = () => resolve();
-  doc.head.appendChild(link);
-});
+const settle = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const waitForImages = (doc) => {
   const images = doc.querySelectorAll('img');
@@ -50,8 +34,10 @@ export const exportPdf = async (elementId, filename) => {
       backgroundColor: '#ffffff',
       onclone: async (clonedDoc) => {
         try {
-          await injectFonts(clonedDoc);
-          await waitForImages(clonedDoc);
+          await Promise.all([
+            waitForImages(clonedDoc),
+            settle(200),
+          ]);
         } catch (e) {
           console.warn('onclone error (non-fatal):', e);
         }

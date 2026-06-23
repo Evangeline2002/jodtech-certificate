@@ -128,7 +128,7 @@ const LandscapeCertificate = () => {
       {/* Watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
         <svg width="500" height="350" viewBox="0 0 200 140" fill="none" opacity="0.04">
-          <text x="100" y="70" textAnchor="middle" dominantBaseline="central" fontSize="40" fontWeight="900" fill="#0F766E" fontFamily="Cinzel, serif">JOD TECH</text>
+          <text x="100" y="70" textAnchor="middle" dominantBaseline="central" fontSize="40" fontWeight="900" fill="#0F766E" fontFamily="'Times New Roman', Times, serif">JOD TECH</text>
         </svg>
       </div>
 
@@ -137,10 +137,10 @@ const LandscapeCertificate = () => {
         {/* Header */}
         <div className="flex items-center gap-4 pb-3" style={{ borderBottom: '1px solid #E5E7EB' }}>
           <div className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#ecfdf5', border: '1px solid rgba(212, 175, 55, 0.3)' }}>
-            <span className="text-sm font-black" style={{ fontFamily: "'Cinzel', serif", color: '#0F766E' }}>JT</span>
+            <span className="text-sm font-black" style={{ fontFamily: "'Times New Roman', Times, serif", color: '#0F766E' }}>JT</span>
           </div>
           <div className="flex-1">
-            <h1 className="text-lg font-black uppercase tracking-[0.2em]" style={{ fontFamily: "'Cinzel', serif", color: '#0A2540' }}>
+            <h1 className="text-lg font-black uppercase tracking-[0.2em]" style={{ fontFamily: "'Times New Roman', Times, serif", color: '#0A2540' }}>
               JOD TECH \u2013 IT SOLUTIONS
             </h1>
             <p className="text-[10px] italic tracking-wide" style={{ color: '#6B7280' }}>Innovating Digital Solutions</p>
@@ -151,7 +151,7 @@ const LandscapeCertificate = () => {
         <div className="flex-1 flex flex-col items-center justify-center text-center px-6 -mt-4">
           <h2
             className="font-black uppercase tracking-[0.3em] mb-2"
-            style={{ fontFamily: "'Cinzel', serif", color: '#0F766E', fontSize: `${fontSize.title}px` }}
+            style={{ fontFamily: "'Times New Roman', Times, serif", color: '#0F766E', fontSize: `${fontSize.title}px` }}
           >
             {title}
           </h2>
@@ -168,7 +168,7 @@ const LandscapeCertificate = () => {
           <div
             className="space-y-2 max-w-2xl"
             style={{
-              fontFamily: "'Poppins', sans-serif",
+              fontFamily: "'Times New Roman', Times, serif",
               color: '#333333',
               fontSize: `${fontSize.content}px`,
               textAlign: textFormat.align,
@@ -208,7 +208,7 @@ const LandscapeCertificate = () => {
               <img src={companySeal.dataUrl} alt="Company Seal" className="h-16 w-16 object-contain mx-auto mb-1" />
             ) : (
               <div className="h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-1" style={{ border: '2px solid rgba(212, 175, 55, 0.4)', background: 'linear-gradient(135deg, #ffffff, rgba(236, 253, 245, 0.3))' }}>
-                <span className="text-[7px] font-bold uppercase text-center leading-tight" style={{ fontFamily: "'Cinzel', serif", color: '#0F766E' }}>
+                <span className="text-[7px] font-bold uppercase text-center leading-tight" style={{ fontFamily: "'Times New Roman', Times, serif", color: '#0F766E' }}>
                   OFFICIAL<br />SEAL
                 </span>
               </div>
@@ -218,14 +218,13 @@ const LandscapeCertificate = () => {
 
           <div className="text-center flex-1">
             {directorSignature ? (
-              <img src={directorSignature.dataUrl} alt="Director Signature" className="h-10 object-contain mx-auto mb-1" />
+              <img src={directorSignature.dataUrl} alt="Managing Director" className="w-36 object-contain mx-auto mb-3" />
             ) : (
-              <div className="h-10 flex items-end justify-center mb-1">
+              <div className="w-36 flex items-end justify-center mx-auto mb-3">
                 <div className="w-28 border-b-2" style={{ borderColor: '#D1D5DB' }} />
               </div>
             )}
-            <p className="text-[9px] font-bold uppercase tracking-wider" style={{ color: '#4B5563' }}>Director Signature</p>
-            <p className="text-[8px]" style={{ color: '#9CA3AF' }}>Managing Director</p>
+            <p className="font-bold uppercase tracking-wider" style={{ color: '#4B5563', fontSize: '18px' }}>Managing Director</p>
           </div>
         </div>
 

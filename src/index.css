@@ -16,6 +16,15 @@ body {
   margin: 0;
 }
 
+.certificate-page {
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+}
+
 @theme {
   --color-jod-navy: #0A2540;
   --color-jod-blue: #007BFF;
@@ -26,23 +35,43 @@ body {
 }
 
 @media print {
-  body {
-    background: none !important;
+  html, body {
+    width: 210mm;
+    height: 297mm;
     margin: 0 !important;
     padding: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body * {
+    display: none !important;
+  }
+
+  .certificate-page,
+  .certificate-page * {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .certificate-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    overflow: hidden;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    page-break-after: avoid;
+    page-break-inside: avoid;
   }
 
   .no-print {
     display: none !important;
-  }
-
-  #certificate-download {
-    box-shadow: none !important;
-    margin: 0 auto !important;
-    width: 794px !important;
-    height: 1123px !important;
-    print-color-adjust: exact !important;
-    -webkit-print-color-adjust: exact !important;
   }
 
   svg, img {

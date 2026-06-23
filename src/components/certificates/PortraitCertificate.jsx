@@ -109,7 +109,7 @@ const PortraitCertificate = () => {
   const title = getCertTitle();
 
   return (
-    <div id="certificate-download" className="relative overflow-hidden bg-white" style={{ width: '794px', height: '1123px' }}>
+    <div id="certificate-download" className="certificate-page">
       {/* Decorative top-right waves */}
       <svg className="absolute top-0 right-0 pointer-events-none z-0" width="320" height="240" viewBox="0 0 380 280" fill="none">
         <path d="M380 0H0C0 0 60 140 220 180C340 210 380 280 380 280V0Z" fill="url(#emGrad)" opacity="0.08" />
@@ -138,7 +138,7 @@ const PortraitCertificate = () => {
       }} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col h-full px-9 py-7">
+      <div className="relative z-10 flex flex-col h-full p-8">
         {/* ===== HEADER: Logo + Company name at top center ===== */}
         <div className="flex flex-col items-center pb-6" style={{ borderBottom: '1px solid #E5E7EB' }}>
           <img src={logo} alt="JOD TECH" className="object-contain mb-3" style={{ width: '240px', height: 'auto' }} />
@@ -151,7 +151,7 @@ const PortraitCertificate = () => {
         </div>
 
         {/* ===== BODY: Certificate content ===== */}
-        <div className="flex flex-col items-center justify-start text-center px-6 pt-4 flex-1">
+        <div className="flex flex-col items-center justify-start text-center px-6 pt-3 flex-1">
           {/* Certificate Title */}
           <h2
             className="font-black uppercase tracking-[0.3em]"
@@ -200,21 +200,20 @@ const PortraitCertificate = () => {
         {/* ===== SIGNATURE AREA ===== */}
         <div className="flex items-end justify-center px-4 pt-4 pb-2">
           {/* Director Signature */}
-          <div className="text-center flex-1 max-w-[220px]">
+          <div className="text-center flex-1 max-w-[260px]">
             {directorSignature ? (
-              <img src={directorSignature.dataUrl} alt="Managing Director" className="h-12 object-contain mx-auto mb-1.5" />
+              <img src={directorSignature.dataUrl} alt="Managing Director" className="w-36 object-contain mx-auto mb-4" />
             ) : (
-              <div className="h-12 flex items-end justify-center mb-1.5">
+              <div className="w-36 flex items-end justify-center mx-auto mb-4">
                 <div className="w-32 border-b-2" style={{ borderColor: '#D1D5DB' }} />
               </div>
             )}
-            <p className="text-xs font-bold uppercase tracking-wider" style={{ color: '#4B5563' }}>Managing Director</p>
-            <p className="text-[20px]" style={{ color: '#9CA3AF' }}>Managing Director</p>
+            <p className="font-bold uppercase tracking-wider" style={{ color: '#4B5563', fontSize: '20px' }}>Managing Director</p>
           </div>
         </div>
 
         {/* ===== FOOTER: Navy gradient with gold accent ===== */}
-        <div className="mt-auto" style={{ minHeight: '130px' }}>
+        <div style={{ minHeight: '130px' }}>
           <div style={{ background: 'linear-gradient(135deg, #0A2540 0%, #065F46 100%)' }} className="h-full px-6 py-3 flex flex-col items-center justify-center text-center border-t-4 border-jod-premium-gold">
             <div className="flex flex-col items-center gap-1" style={{ fontSize: `${fontSize.footer}px` }}>
               <div className="flex items-center gap-2">

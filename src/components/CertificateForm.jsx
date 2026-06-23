@@ -146,7 +146,9 @@ const CertificateFormInner = () => {
   };
 
   const handlePrint = () => {
-    window.print();
+    setTimeout(() => {
+      window.print();
+    }, 1000);
   };
 
   return (

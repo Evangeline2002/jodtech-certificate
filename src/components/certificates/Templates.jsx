@@ -58,7 +58,7 @@ const CertificateLayout = ({ children, title, fontSize }) => {
               <img src={logo} alt="JOD TECH" className="h-28 w-auto object-contain" />
             </div>
             <h2
-              style={{ fontFamily: "'Cinzel', serif" }}
+              style={{ fontFamily: "'Times New Roman', Times, serif" }}
               className="text-jod-emerald text-lg font-bold tracking-[0.25em] uppercase"
             >
               JOD TECH – IT SOLUTIONS
@@ -74,7 +74,7 @@ const CertificateLayout = ({ children, title, fontSize }) => {
         {/* Title */}
         <div className="relative z-10 mt-6 mb-4">
           <h1
-            style={{ fontFamily: "'Cinzel', serif" }}
+            style={{ fontFamily: "'Times New Roman', Times, serif" }}
             className="text-3xl font-black text-jod-emerald tracking-[0.3em] uppercase"
           >
             {title} Certificate
@@ -87,7 +87,7 @@ const CertificateLayout = ({ children, title, fontSize }) => {
         </div>
 
         {/* Body */}
-        <div className="flex-grow w-full px-12 relative z-10 flex flex-col justify-center" style={{ fontFamily: "'Poppins', sans-serif" }}>
+        <div className="flex-grow w-full px-12 relative z-10 flex flex-col justify-center" style={{ fontFamily: "'Times New Roman', Times, serif" }}>
           {children}
         </div>
 
@@ -106,7 +106,7 @@ const CertificateLayout = ({ children, title, fontSize }) => {
               <div className="w-20 h-20 rounded-full flex items-center justify-center" style={{ border: '2px solid rgba(212, 175, 55, 0.6)', background: 'linear-gradient(135deg, #ffffff, rgba(236, 253, 245, 0.3))' }}>
                 <div className="text-center">
                   <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto" style={{ border: '1px solid rgba(212, 175, 55, 0.4)' }}>
-                    <span className="text-[8px] font-bold text-jod-emerald uppercase leading-tight text-center" style={{ fontFamily: "'Cinzel', serif" }}>
+                    <span className="text-[8px] font-bold text-jod-emerald uppercase leading-tight text-center" style={{ fontFamily: "'Times New Roman', Times, serif" }}>
                       OFFICIAL<br />SEAL
                     </span>
                   </div>
@@ -126,7 +126,7 @@ const CertificateLayout = ({ children, title, fontSize }) => {
                 <span className="text-[10px] text-jod-emerald font-semibold">Verified</span>
               </div>
               <div
-                style={{ fontFamily: "'Brush Script MT', 'Great Vibes', cursive", color: '#374151' }}
+                style={{ fontFamily: "'Times New Roman', Times, serif", color: '#374151' }}
                 className="text-xl italic leading-none mb-1"
               >
                 John David
@@ -182,10 +182,10 @@ export const InternshipCertificate = ({ data, fontSize = 16 }) => {
   const { candidateName, courseName, startDate, endDate, collegeName, department } = data;
   return (
     <CertificateLayout title="Internship" type="internship" fontSize={fontSize}>
-      <div className="space-y-4" style={{ fontFamily: "'Poppins', sans-serif", color: '#333333' }}>
+      <div className="space-y-4" style={{ fontFamily: "'Times New Roman', Times, serif", color: '#333333' }}>
         <p className="text-sm font-medium tracking-wide">This is to certify that</p>
         <h3
-          style={{ fontFamily: "'Cinzel', serif", color: '#0F766E' }}
+          style={{ fontFamily: "'Times New Roman', Times, serif", color: '#0F766E' }}
           className="text-2xl font-black tracking-wide uppercase py-0.5"
         >
           {candidateName || 'Candidate Name'}
@@ -221,10 +221,10 @@ export const TrainingCertificate = ({ data, fontSize = 16 }) => {
   const { candidateName, courseName, startDate, endDate, collegeName, department } = data;
   return (
     <CertificateLayout title="Training" type="training" fontSize={fontSize}>
-      <div className="space-y-4" style={{ fontFamily: "'Poppins', sans-serif", color: '#333333' }}>
+      <div className="space-y-4" style={{ fontFamily: "'Times New Roman', Times, serif", color: '#333333' }}>
         <p className="text-sm font-medium tracking-wide">This is to certify that</p>
         <h3
-          style={{ fontFamily: "'Cinzel', serif", color: '#0F766E' }}
+          style={{ fontFamily: "'Times New Roman', Times, serif", color: '#0F766E' }}
           className="text-2xl font-black tracking-wide uppercase py-0.5"
         >
           {candidateName || 'Candidate Name'}
@@ -260,10 +260,10 @@ export const ExperienceCertificate = ({ data, fontSize = 16 }) => {
   const { candidateName, designation, startDate, endDate, collegeName, department } = data;
   return (
     <CertificateLayout title="Experience" type="experience" fontSize={fontSize}>
-      <div className="space-y-4" style={{ fontFamily: "'Poppins', sans-serif", color: '#333333' }}>
+      <div className="space-y-4" style={{ fontFamily: "'Times New Roman', Times, serif", color: '#333333' }}>
         <p className="text-sm font-medium tracking-wide">This is to certify that</p>
         <h3
-          style={{ fontFamily: "'Cinzel', serif", color: '#0F766E' }}
+          style={{ fontFamily: "'Times New Roman', Times, serif", color: '#0F766E' }}
           className="text-2xl font-black tracking-wide uppercase py-0.5"
         >
           {candidateName || 'Candidate Name'}
