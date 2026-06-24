@@ -1,240 +1,301 @@
 import { useCertificate } from '../../context/CertificateContext';
 import logo from '../../assets/jodtech-logo.png';
 
-const formatDate = (dateStr) => {
-  if (!dateStr || !dateStr.includes('-')) return null;
-  const [y, m, d] = dateStr.split('-');
-  return `${d}.${m}.${y}`;
+// ── helpers ────────────────────────────────────────────────────────────────
+const fmtDate = (d) => {
+  if (!d || !d.includes('-')) return 'DD/MM/YYYY';
+  const [y, m, dd] = d.split('-');
+  return `${dd}/${m}/${y}`;
 };
 
-const Divider = () => (
-  <div className="flex items-center gap-2 my-3">
-    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-jod-premium-gold to-transparent" />
-    <div className="w-2.5 h-2.5 rotate-45 border border-jod-premium-gold" />
-    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-jod-premium-gold to-transparent" />
-  </div>
-);
+// ── shared style tokens ─────────────────────────────────────────────────────
+const EMERALD = '#0F766E';
+const DARK_GREEN = '#065F46';
+const NAVY = '#0A2540';
+const GOLD = '#D4AF37';
+const GRAY_TEXT = '#4a5568';
+const FONT_SERIF = "'Times New Roman', Times, serif";
 
-const getBodyContent = (type, formData) => {
-  const { candidateName, courseName, designation, startDate, endDate, collegeName, department } = formData;
-  switch (type) {
-      case 'internship':
-      return (
-        <>
-          <p className="text-base font-medium" style={{ color: '#4a5568' }}>This is to certify that</p>
-          <p className="text-3xl font-black uppercase tracking-wider py-1" style={{ color: '#0F766E' }}>
-            {candidateName || 'Candidate Name'}
-          </p>
-          <p className="text-base font-medium" style={{ color: '#4a5568' }}>Student of</p>
-          <p className="text-xl font-bold uppercase tracking-wider" style={{ color: '#0F766E' }}>
-            {collegeName || 'College Name'}
-          </p>
-          <p className="text-base font-medium" style={{ color: '#4a5568' }}>Department of</p>
-          <p className="text-lg font-bold uppercase tracking-wider" style={{ color: '#0F766E' }}>
-            {department || 'Department Name'}
-          </p>
-          <p className="text-base" style={{ color: '#4a5568' }}>has successfully completed an Internship in</p>
-          <p className="text-base font-bold uppercase tracking-wider inline-block pb-0.5 px-4" style={{ color: '#0F766E', borderBottom: '2px solid rgba(212, 175, 55, 0.4)' }}>
-            {courseName || 'Full Stack Development'}
-          </p>
-          <p className="text-base mt-2" style={{ color: '#4a5568' }}>
-            at <span className="font-semibold" style={{ color: '#0F766E' }}>JOD TECH</span>{' '}
-            during the period from <span className="font-semibold">{formatDate(startDate) || 'DD.MM.YYYY'}</span> to{' '}
-            <span className="font-semibold">{formatDate(endDate) || 'DD.MM.YYYY'}</span>.
-          </p>
-        </>
-      );
-    case 'training':
-      return (
-        <>
-          <p className="text-base font-medium" style={{ color: '#4a5568' }}>This is to certify that</p>
-          <p className="text-3xl font-black uppercase tracking-wider py-1" style={{ color: '#0F766E' }}>
-            {candidateName || 'Candidate Name'}
-          </p>
-          <p className="text-base font-medium" style={{ color: '#4a5568' }}>Student of</p>
-          <p className="text-xl font-bold uppercase tracking-wider" style={{ color: '#0F766E' }}>
-            {collegeName || 'College Name'}
-          </p>
-          <p className="text-base font-medium" style={{ color: '#4a5568' }}>Department of</p>
-          <p className="text-lg font-bold uppercase tracking-wider" style={{ color: '#0F766E' }}>
-            {department || 'Department Name'}
-          </p>
-          <p className="text-base" style={{ color: '#4a5568' }}>has successfully completed a Training in</p>
-          <p className="text-base font-bold uppercase tracking-wider inline-block pb-0.5 px-4" style={{ color: '#0F766E', borderBottom: '2px solid rgba(212, 175, 55, 0.4)' }}>
-            {courseName || 'Web Technology'}
-          </p>
-          <p className="text-base mt-2" style={{ color: '#4a5568' }}>
-            at <span className="font-semibold" style={{ color: '#0F766E' }}>JOD TECH</span>{' '}
-            during the period from <span className="font-semibold">{formatDate(startDate) || 'DD.MM.YYYY'}</span> to{' '}
-            <span className="font-semibold">{formatDate(endDate) || 'DD.MM.YYYY'}</span>.
-          </p>
-        </>
-      );
-    case 'experience':
-      return (
-        <>
-          <p className="text-base font-medium" style={{ color: '#4a5568' }}>This is to certify that</p>
-          <p className="text-3xl font-black uppercase tracking-wider py-1" style={{ color: '#0F766E' }}>
-            {candidateName || 'Candidate Name'}
-          </p>
-          <p className="text-base font-medium" style={{ color: '#4a5568' }}>Student of</p>
-          <p className="text-xl font-bold uppercase tracking-wider" style={{ color: '#0F766E' }}>
-            {collegeName || 'College Name'}
-          </p>
-          <p className="text-base font-medium" style={{ color: '#4a5568' }}>Department of</p>
-          <p className="text-lg font-bold uppercase tracking-wider" style={{ color: '#0F766E' }}>
-            {department || 'Department Name'}
-          </p>
-          <p className="text-base" style={{ color: '#4a5568' }}>
-            worked with <span className="font-semibold" style={{ color: '#0F766E' }}>JOD TECH</span> as
-          </p>
-          <p className="text-base font-bold uppercase tracking-wider inline-block rounded-lg py-1 px-4" style={{ color: '#065F46', backgroundColor: 'rgba(236, 253, 245, 0.5)', border: '1px solid rgba(212, 175, 55, 0.2)' }}>
-            {designation || 'Software Engineer'}
-          </p>
-          <p className="text-base mt-2" style={{ color: '#4a5568' }}>
-            during the period from <span className="font-semibold" style={{ color: '#0F766E' }}>{formatDate(startDate) || 'DD.MM.YYYY'}</span> to{' '}
-            <span className="font-semibold" style={{ color: '#0F766E' }}>{formatDate(endDate) || 'DD.MM.YYYY'}</span>.
-          </p>
-        </>
-      );
-    default:
-      return null;
+// ── body content per cert type (no Department) ─────────────────────────────
+const getBody = (type, formData) => {
+  const { candidateName, courseName, designation, startDate, endDate, collegeName } = formData;
+
+  const nameBlock = (
+    <p style={{
+      fontFamily: FONT_SERIF, fontSize: '32px', fontWeight: 900, color: EMERALD,
+      textTransform: 'uppercase', letterSpacing: '2px', margin: '6px 0'
+    }}>
+      {candidateName || 'CANDIDATE NAME'}
+    </p>
+  );
+
+  const collegeBlock = (
+    <p style={{
+      fontFamily: FONT_SERIF, fontSize: '20px', fontWeight: 700, color: EMERALD,
+      textTransform: 'uppercase', letterSpacing: '1px', margin: '4px 0 12px'
+    }}>
+      {collegeName || 'COLLEGE NAME'}
+    </p>
+  );
+
+  if (type === 'experience') {
+    return (
+      <>
+        <p style={{ fontFamily: FONT_SERIF, fontSize: '18px', color: GRAY_TEXT, margin: '6px 0' }}>
+          This is to certify that
+        </p>
+        {nameBlock}
+        <p style={{ fontFamily: FONT_SERIF, fontSize: '16px', color: GRAY_TEXT, margin: '4px 0' }}>
+          worked with{' '}
+          <strong style={{ color: '#000000', fontWeight: 'bold' }}>JOD TECH – IT Solutions</strong> as
+        </p>
+        <p style={{
+          fontFamily: FONT_SERIF, fontSize: '18px', fontWeight: 700, color: DARK_GREEN,
+          textTransform: 'uppercase', letterSpacing: '1px',
+          border: `1px solid ${GOLD}44`, borderRadius: '4px',
+          backgroundColor: 'rgba(236,253,245,0.5)',
+          display: 'inline-block', padding: '6px 20px', margin: '6px 0 10px'
+        }}>
+          {designation || 'Software Engineer'}
+        </p>
+        <p style={{ fontFamily: FONT_SERIF, fontSize: '16px', color: GRAY_TEXT, margin: '6px 0' }}>
+          Internship Period:&nbsp;
+          <strong style={{ color: '#000000', fontWeight: 'bold' }}>{fmtDate(startDate)}</strong>
+          &nbsp;–&nbsp;
+          <strong style={{ color: '#000000', fontWeight: 'bold' }}>{fmtDate(endDate)}</strong>
+        </p>
+      </>
+    );
   }
-};
 
-const PortraitCertificate = () => {
-  const { formData, certType, getCertTitle, certContent, fontSize, hrSignature, directorSignature, footer, textFormat } = useCertificate();
+  const courseBlock = (
+    <p style={{
+      fontFamily: FONT_SERIF, fontSize: '18px', fontWeight: 700, color: EMERALD,
+      textTransform: 'uppercase', letterSpacing: '1px',
+      borderBottom: `2px solid ${GOLD}66`, display: 'inline-block',
+      padding: '2px 14px', margin: '6px 0 8px'
+    }}>
+      {courseName || 'FULL STACK DEVELOPMENT'}
+    </p>
+  );
 
-  const bodyContent = getBodyContent(certType, formData);
-  const title = getCertTitle();
+  const verb = type === 'training' ? 'a Training' : 'an Internship';
 
   return (
-    <div id="certificate-download" className="certificate-page">
-      {/* Decorative top-right waves */}
-      <svg className="absolute top-0 right-0 pointer-events-none z-0" width="320" height="240" viewBox="0 0 380 280" fill="none">
-        <path d="M380 0H0C0 0 60 140 220 180C340 210 380 280 380 280V0Z" fill="url(#emGrad)" opacity="0.08" />
-        <path d="M380 0H40C40 0 100 120 230 160C330 185 380 240 380 240V0Z" fill="url(#gdGrad)" opacity="0.06" />
-        <defs>
-          <linearGradient id="emGrad" x1="0" y1="0" x2="380" y2="280"><stop stopColor="#0F766E" /><stop offset="1" stopColor="#065F46" /></linearGradient>
-          <linearGradient id="gdGrad" x1="0" y1="0" x2="380" y2="280"><stop stopColor="#D4AF37" /><stop offset="1" stopColor="#B8860B" /></linearGradient>
-        </defs>
+    <>
+      <p style={{ fontFamily: FONT_SERIF, fontSize: '18px', color: GRAY_TEXT, margin: '6px 0' }}>
+        This is to certify that
+      </p>
+      {nameBlock}
+      <p style={{ fontFamily: FONT_SERIF, fontSize: '16px', color: GRAY_TEXT, margin: '4px 0 8px' }}>
+        Student of
+      </p>
+      {collegeBlock}
+      <p style={{ fontFamily: FONT_SERIF, fontSize: '17px', color: GRAY_TEXT, margin: '6px 0' }}>
+        has successfully completed {verb} in
+      </p>
+      {courseBlock}
+      <p style={{ fontFamily: FONT_SERIF, fontSize: '17px', color: GRAY_TEXT, margin: '10px 0 6px', lineHeight: 1.7 }}>
+        at <strong style={{ color: '#000000', fontWeight: 'bold' }}>JOD TECH</strong> during the period from{' '}
+        <strong style={{ color: '#000000', fontWeight: 'bold' }}>{fmtDate(startDate)}</strong> to{' '}
+        <strong style={{ color: '#000000', fontWeight: 'bold' }}>{fmtDate(endDate)}</strong>.
+      </p>
+    </>
+  );
+
+};
+
+// ── main component ─────────────────────────────────────────────────────────
+const PortraitCertificate = () => {
+  const {
+    formData, certType, getCertTitle,
+    fontSize, hrSignature, directorSignature, footer,
+  } = useCertificate();
+
+  const title = getCertTitle();
+  const body = getBody(certType, formData);
+
+  /* ---- root container -------------------------------------------------- */
+  const rootStyle = {
+    width: '794px',          // 210mm @ 96dpi
+    height: '1123px',        // 297mm @ 96dpi
+    position: 'relative',
+    overflow: 'hidden',
+    background: '#ffffff',
+    display: 'flex',
+    flexDirection: 'column',
+    boxSizing: 'border-box',
+    fontFamily: FONT_SERIF,
+  };
+
+  return (
+    <div id="certificate-download" className="certificate-page" style={rootStyle}>
+
+      {/* ── decorative corner waves ─────────────────────────────────────── */}
+      <svg style={{ position: 'absolute', top: 0, right: 0, pointerEvents: 'none', zIndex: 0 }}
+        width="280" height="210" viewBox="0 0 380 280" fill="none">
+        <path d="M380 0H0C0 0 60 140 220 180C340 210 380 280 380 280V0Z"
+          fill="#0F766E" opacity="0.07" />
+        <path d="M380 0H40C40 0 100 120 230 160C330 185 380 240 380 240V0Z"
+          fill="#D4AF37" opacity="0.05" />
       </svg>
-      <svg className="absolute bottom-0 left-0 pointer-events-none z-0 scale-x-[-1] scale-y-[-1]" width="320" height="240" viewBox="0 0 380 280" fill="none">
-        <path d="M380 0H0C0 0 60 140 220 180C340 210 380 280 380 280V0Z" fill="url(#emGrad2)" opacity="0.08" />
-        <defs>
-          <linearGradient id="emGrad2" x1="0" y1="0" x2="380" y2="280"><stop stopColor="#0F766E" /><stop offset="1" stopColor="#065F46" /></linearGradient>
-        </defs>
+      <svg style={{
+        position: 'absolute', bottom: 0, left: 0, pointerEvents: 'none', zIndex: 0,
+        transform: 'scaleX(-1) scaleY(-1)'
+      }}
+        width="280" height="210" viewBox="0 0 380 280" fill="none">
+        <path d="M380 0H0C0 0 60 140 220 180C340 210 380 280 380 280V0Z"
+          fill="#0F766E" opacity="0.07" />
       </svg>
 
-      {/* Border layers */}
-      <div className="absolute inset-0 pointer-events-none z-10" style={{ border: '2px solid #D4AF37' }} />
-      <div className="absolute inset-[6px] pointer-events-none z-10" style={{ border: '1px solid rgba(15, 118, 110, 0.25)' }} />
+      {/* ── outer gold border ───────────────────────────────────────────── */}
+      <div style={{
+        position: 'absolute', inset: 0, border: `2px solid ${GOLD}`, zIndex: 20,
+        pointerEvents: 'none'
+      }} />
+      <div style={{
+        position: 'absolute', inset: '6px', border: `1px solid ${EMERALD}44`, zIndex: 20,
+        pointerEvents: 'none'
+      }} />
 
-      {/* Watermark */}
-      <img src={logo} alt="" className="absolute" style={{
-        top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-        width: '650px', height: 'auto', opacity: 0.05,
+      {/* ── watermark ───────────────────────────────────────────────────── */}
+      <img src={logo} alt="" style={{
+        position: 'absolute', top: '50%', left: '50%',
+        transform: 'translate(-50%,-50%)',
+        width: '600px', height: 'auto', opacity: 0.05,
         zIndex: 0, pointerEvents: 'none',
       }} />
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col h-full p-8">
-        {/* ===== HEADER: Logo + Company name at top center ===== */}
-        <div className="flex flex-col items-center pb-6" style={{ borderBottom: '1px solid #E5E7EB' }}>
-          <img src={logo} alt="JOD TECH" className="object-contain mb-3" style={{ width: '240px', height: 'auto' }} />
-          <h1 style={{ fontFamily: "'Times New Roman', Times, serif", fontSize: '34px', fontWeight: 700, color: '#0A2540', letterSpacing: '1px', marginBottom: '4px' }}>
+      {/* ── content wrapper ──────────────────────────────────────────────── */}
+      <div style={{
+        position: 'relative', zIndex: 10,
+        display: 'flex', flexDirection: 'column',
+        height: '100%', padding: '28px 40px 0',
+        boxSizing: 'border-box',
+      }}>
+
+        {/* ── HEADER ──────────────────────────────────────────────────── */}
+        <div style={{
+          display: 'flex', flexDirection: 'column', alignItems: 'center',
+          paddingBottom: '14px',
+        }}>
+          <img src={logo} alt="JOD TECH" style={{ width: '220px', height: 'auto', objectFit: 'contain', marginBottom: '8px' }} />
+          <h1 style={{
+            fontFamily: FONT_SERIF, fontSize: '32px', fontWeight: 700, color: NAVY,
+            letterSpacing: '1px', margin: '0 0 2px', textAlign: 'center'
+          }}>
             JOD TECH
           </h1>
-          <p style={{ fontFamily: "'Times New Roman', Times, serif", fontSize: '22px', fontWeight: 600, color: '#000000', letterSpacing: '2px' }}>
+          <p style={{
+            fontFamily: FONT_SERIF, fontSize: '20px', fontWeight: 600, color: '#000',
+            letterSpacing: '2px', margin: 0, textAlign: 'center'
+          }}>
             IT Solution
           </p>
         </div>
 
-        {/* ===== BODY: Certificate content ===== */}
-        <div className="flex flex-col items-center justify-start text-center px-6 pt-3 flex-1">
-          {/* Certificate Title */}
-          <h2
-            className="font-black uppercase tracking-[0.3em]"
-            style={{ fontFamily: "'Times New Roman', Times, serif", color: '#0F766E', fontSize: `${fontSize.title}px` }}
-          >
+        {/* ── BODY ─────────────────────────────────────────────────────── */}
+        <div style={{
+          flex: 1, display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'flex-start',
+          textAlign: 'center', paddingTop: '16px', lineHeight: 1.5,
+          overflow: 'hidden',
+        }}>
+          {/* Title */}
+          <h2 style={{
+            fontFamily: FONT_SERIF, fontSize: `${fontSize.title}px`, fontWeight: 900,
+            color: EMERALD, textTransform: 'uppercase', letterSpacing: '4px',
+            margin: '0 0 10px'
+          }}>
             {title}
           </h2>
-          <Divider />
 
-          {/* Certificate Number */}
+          {/* Cert number */}
           {formData.certNumber && (
-            <p className="text-xs mb-3" style={{ color: '#9CA3AF', fontSize: `${fontSize.certNumber}px` }}>
-              Certificate No: <span className="font-semibold" style={{ color: '#4B5563' }}>{formData.certNumber}</span>
+            <p style={{
+              fontFamily: FONT_SERIF, fontSize: `${fontSize.certNumber}px`,
+              color: '#9CA3AF', margin: '0 0 15px'
+            }}>
+              Certificate No:&nbsp;
+              <strong style={{ color: '#4B5563' }}>{formData.certNumber}</strong>
             </p>
           )}
 
           {/* Dynamic body */}
-          <div
-            className="space-y-3"
-            style={{
-              fontFamily: "'Times New Roman', Times, serif",
-              color: '#333333',
-              fontSize: `${fontSize.content}px`,
-              textAlign: textFormat.align,
-              lineHeight: textFormat.lineHeight,
-              letterSpacing: textFormat.letterSpacing + 'px',
-            }}
-          >
-            {bodyContent}
-          </div>
-
-          {/* Custom rich content */}
-          {certContent && (
-            <div
-              className="mt-4"
-              style={{
-                fontSize: `${fontSize.content}px`,
-                textAlign: textFormat.align,
-                lineHeight: textFormat.lineHeight,
-              }}
-              dangerouslySetInnerHTML={{ __html: certContent }}
-            />
-          )}
-        </div>
-
-        {/* ===== SIGNATURE AREA ===== */}
-        <div className="flex items-end justify-center px-4 pt-4 pb-2">
-          {/* Director Signature */}
-          <div className="text-center flex-1 max-w-[260px]">
-            {directorSignature ? (
-              <img src={directorSignature.dataUrl} alt="Managing Director" className="w-36 object-contain mx-auto mb-4" />
-            ) : (
-              <div className="w-36 flex items-end justify-center mx-auto mb-4">
-                <div className="w-32 border-b-2" style={{ borderColor: '#D1D5DB' }} />
-              </div>
-            )}
-            <p className="font-bold uppercase tracking-wider" style={{ color: '#4B5563', fontSize: '20px' }}>Managing Director</p>
+          <div style={{
+            display: 'flex', flexDirection: 'column', alignItems: 'center',
+            width: '100%', maxWidth: '600px', gap: '4px'
+          }}>
+            {body}
           </div>
         </div>
 
-        {/* ===== FOOTER: Navy gradient with gold accent ===== */}
-        <div style={{ minHeight: '130px' }}>
-          <div style={{ background: 'linear-gradient(135deg, #0A2540 0%, #065F46 100%)' }} className="h-full px-6 py-3 flex flex-col items-center justify-center text-center border-t-4 border-jod-premium-gold">
-            <div className="flex flex-col items-center gap-1" style={{ fontSize: `${fontSize.footer}px` }}>
-              <div className="flex items-center gap-2">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span style={{ color: '#ffffff', fontWeight: 500 }}>{footer.address}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <span style={{ color: '#ffffff', fontWeight: 500 }}>{footer.phone} | {footer.altPhone}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <span style={{ color: '#ffffff', fontWeight: 500 }}>{footer.email}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                <span style={{ color: '#ffffff', fontWeight: 600 }}>{footer.website}</span>
-              </div>
+        {/* ── SIGNATURE ─────────────────────────────────────────────────── */}
+        <div style={{
+          display: 'flex', justifyContent: 'center', alignItems: 'flex-end',
+          padding: '12px 20px 14px', gap: '60px',
+        }}>
+          {/* HR Signature */}
+          {hrSignature && (
+            <div style={{ textAlign: 'center' }}>
+              <img src={hrSignature.dataUrl} alt="HR" style={{ height: '40px', objectFit: 'contain', marginBottom: '4px' }} />
+              <p style={{
+                fontFamily: FONT_SERIF, fontSize: '10px', fontWeight: 700, color: '#4B5563',
+                textTransform: 'uppercase', letterSpacing: '1px', margin: '2px 0 0'
+              }}>
+                HR Signature
+              </p>
+              <p style={{ fontFamily: FONT_SERIF, fontSize: '9px', color: '#9CA3AF', margin: 0 }}>
+                Authorized Signatory
+              </p>
             </div>
+          )}
+
+          {/* Director Signature */}
+          <div style={{ textAlign: 'center' }}>
+            {directorSignature ? (
+              <img src={directorSignature.dataUrl} alt="Director" style={{ width: '130px', objectFit: 'contain', marginBottom: '10px' }} />
+            ) : (
+              <div style={{ width: '200px', borderBottom: `2px solid #D1D5DB`, marginBottom: '10px' }} />
+            )}
+            <p style={{
+              fontFamily: FONT_SERIF, fontSize: '14px', fontWeight: 700, color: '#4B5563',
+              textTransform: 'uppercase', letterSpacing: '1px', margin: 0
+            }}>
+              Managing Director
+            </p>
           </div>
         </div>
+
+        {/* ── FOOTER ───────────────────────────────────────────────────── */}
+        <div style={{
+          background: `linear-gradient(135deg, ${NAVY} 0%, ${DARK_GREEN} 100%)`,
+          borderTop: `3px solid ${GOLD}`,
+          padding: '10px 20px',
+          display: 'flex', flexDirection: 'column', alignItems: 'center',
+          gap: '4px',
+        }}>
+          {[
+            { icon: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0-6 0', text: footer.address },
+            { icon: 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.21 12 19.79 19.79 0 0 1 1.14 3.32 2 2 0 0 1 3.11 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z', text: `${footer.phone} | ${footer.altPhone}` },
+            { icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z M22 6l-10 7L2 6', text: footer.email },
+            { icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z M2 12h20 M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z', text: footer.website },
+          ].map((row, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
+                stroke={GOLD} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d={row.icon} />
+              </svg>
+              <span style={{
+                fontFamily: FONT_SERIF, fontSize: `${fontSize.footer}px`,
+                color: 'rgba(255,255,255,0.9)', fontWeight: i === 3 ? 600 : 400
+              }}>
+                {row.text}
+              </span>
+            </div>
+          ))}
+        </div>
+
       </div>
     </div>
   );

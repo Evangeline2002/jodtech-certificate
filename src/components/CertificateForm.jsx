@@ -35,7 +35,7 @@ const InputField = ({ label, name, value, onChange, placeholder, type = 'text', 
         {placeholder && <option value="">{placeholder}</option>}
         {label === 'Duration' ? (
           <>
-            {['1 Month','2 Months','3 Months','4 Months','5 Months','6 Months','1 Year','2 Years'].map(opt => (
+            {['1 Month', '2 Months', '3 Months', '4 Months', '5 Months', '6 Months', '1 Year', '2 Years'].map(opt => (
               <option key={opt} value={opt}>{opt}</option>
             ))}
           </>
@@ -48,7 +48,7 @@ const InputField = ({ label, name, value, onChange, placeholder, type = 'text', 
   </div>
 );
 
-const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 const getDateParts = (dateStr) => {
   if (!dateStr || !dateStr.includes('-')) return { d: '01', m: '01', y: '2025' };
@@ -62,15 +62,15 @@ const DateSelect = ({ value, field, onUpdate }) => {
     <div className="flex gap-0.5">
       <select value={parts.d} onChange={(e) => onUpdate(field, 'd', e.target.value)}
         className="w-9 text-xs border border-gray-200 rounded-lg px-0.5 py-2 bg-white text-center">
-        {Array.from({length: 31}, (_, i) => <option key={i} value={String(i+1).padStart(2,'0')}>{String(i+1).padStart(2,'0')}</option>)}
+        {Array.from({ length: 31 }, (_, i) => <option key={i} value={String(i + 1).padStart(2, '0')}>{String(i + 1).padStart(2, '0')}</option>)}
       </select>
       <select value={parts.m} onChange={(e) => onUpdate(field, 'm', e.target.value)}
         className="w-12 text-xs border border-gray-200 rounded-lg px-0.5 py-2 bg-white text-center">
-        {MONTHS.map((m, i) => <option key={i} value={String(i+1).padStart(2,'0')}>{m}</option>)}
+        {MONTHS.map((m, i) => <option key={i} value={String(i + 1).padStart(2, '0')}>{m}</option>)}
       </select>
       <select value={parts.y} onChange={(e) => onUpdate(field, 'y', e.target.value)}
         className="w-12 text-xs border border-gray-200 rounded-lg px-0.5 py-2 bg-white text-center">
-        {Array.from({length: 15}, (_, i) => <option key={i} value={2020 + i}>{2020 + i}</option>)}
+        {Array.from({ length: 15 }, (_, i) => <option key={i} value={2020 + i}>{2020 + i}</option>)}
       </select>
     </div>
   );
@@ -146,9 +146,24 @@ const CertificateFormInner = () => {
   };
 
   const handlePrint = () => {
+    // Temporarily remove the zoom scale so the certificate prints at 100%
+    const wrapper = previewRef.current;
+    const originalTransform = wrapper ? wrapper.style.transform : null;
+    const originalOrigin = wrapper ? wrapper.style.transformOrigin : null;
+    if (wrapper) {
+      wrapper.style.transform = 'none';
+      wrapper.style.transformOrigin = 'top left';
+    }
     setTimeout(() => {
       window.print();
-    }, 1000);
+      // Restore after print dialog closes
+      setTimeout(() => {
+        if (wrapper) {
+          wrapper.style.transform = originalTransform || '';
+          wrapper.style.transformOrigin = originalOrigin || '';
+        }
+      }, 500);
+    }, 300);
   };
 
   return (
@@ -204,7 +219,6 @@ const CertificateFormInner = () => {
             </div>
             <div className="grid grid-cols-2 gap-2">
               <InputField label="College Name" name="collegeName" value={formData.collegeName} onChange={handleChange} placeholder="College / Institute" />
-              <InputField label="Department" name="department" value={formData.department} onChange={handleChange} placeholder="Department" />
             </div>
             <div className="grid grid-cols-2 gap-2">
               <div>

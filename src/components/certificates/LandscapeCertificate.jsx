@@ -37,7 +37,7 @@ const getBodyContent = (type, formData) => {
             {courseName || 'Full Stack Development'}
           </p>
           <p className="text-sm mt-2">
-            at <span className="font-semibold" style={{ color: '#0F766E' }}>JOD TECH \u2013 IT Solutions</span>{' '}
+            at <span className="font-semibold" style={{ color: '#0F766E' }}>JOD TECH  IT Solutions</span>{' '}
             during the period from {formatDate(startDate) || 'DD.MM.YYYY'} to {formatDate(endDate) || 'DD.MM.YYYY'}.
           </p>
         </>
