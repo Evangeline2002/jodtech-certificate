@@ -34,8 +34,8 @@ const initialState = {
   footer: {
     companyName: 'JOD TECH \u2013 IT Solutions',
     address: 'No.10, Chitharanjan Street,\nChinna Chokkikulam,\nMadurai \u2013 625002',
-    phone: '+91 96297 72195',
-    altPhone: '+91 78679 08377',
+    phone: '+91 96298 72195',
+    altPhone: '+91 78717 70070',
     website: 'https://www.jodtech.in',
     email: 'support@jodtech.in',
   },

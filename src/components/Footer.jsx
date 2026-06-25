@@ -62,7 +62,7 @@
 //                             <li className="flex items-center gap-3">
 //                                 <Phone size={16} className="text-jod-gold shrink-0" />
 //                                 <span className="text-gray-400 text-sm">
-//                                     +91 96297 72195<br />+91 78679 08377
+//                                     +91 96298 72195<br />+91 78717 70070
 //                                 </span>
 //                             </li>
 //                             <li className="flex items-center gap-3">

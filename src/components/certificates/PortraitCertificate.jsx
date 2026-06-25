@@ -22,7 +22,7 @@ const getBody = (type, formData) => {
 
   const nameBlock = (
     <p style={{
-      fontFamily: FONT_SERIF, fontSize: '32px', fontWeight: 900, color: EMERALD,
+      fontFamily: FONT_SERIF, fontSize: '32px', fontWeight: 900, color: '#000000',
       textTransform: 'uppercase', letterSpacing: '2px', margin: '6px 0'
     }}>
       {candidateName || 'CANDIDATE NAME'}
@@ -31,7 +31,7 @@ const getBody = (type, formData) => {
 
   const collegeBlock = (
     <p style={{
-      fontFamily: FONT_SERIF, fontSize: '20px', fontWeight: 700, color: EMERALD,
+      fontFamily: FONT_SERIF, fontSize: '20px', fontWeight: 700, color: '#000000',
       textTransform: 'uppercase', letterSpacing: '1px', margin: '4px 0 12px'
     }}>
       {collegeName || 'COLLEGE NAME'}
@@ -47,7 +47,7 @@ const getBody = (type, formData) => {
         {nameBlock}
         <p style={{ fontFamily: FONT_SERIF, fontSize: '16px', color: GRAY_TEXT, margin: '4px 0' }}>
           worked with{' '}
-          <strong style={{ color: '#000000', fontWeight: 'bold' }}>JOD TECH – IT Solutions</strong> as
+          <strong style={{ color: DARK_GREEN, fontWeight: 'bold' }}>JOD TECH – IT Solutions</strong> as
         </p>
         <p style={{
           fontFamily: FONT_SERIF, fontSize: '18px', fontWeight: 700, color: DARK_GREEN,
@@ -60,9 +60,9 @@ const getBody = (type, formData) => {
         </p>
         <p style={{ fontFamily: FONT_SERIF, fontSize: '16px', color: GRAY_TEXT, margin: '6px 0' }}>
           Internship Period:&nbsp;
-          <strong style={{ color: '#000000', fontWeight: 'bold' }}>{fmtDate(startDate)}</strong>
+          <strong style={{ color: DARK_GREEN, fontWeight: 'bold' }}>{fmtDate(startDate)}</strong>
           &nbsp;–&nbsp;
-          <strong style={{ color: '#000000', fontWeight: 'bold' }}>{fmtDate(endDate)}</strong>
+          <strong style={{ color: DARK_GREEN, fontWeight: 'bold' }}>{fmtDate(endDate)}</strong>
         </p>
       </>
     );
@@ -70,7 +70,7 @@ const getBody = (type, formData) => {
 
   const courseBlock = (
     <p style={{
-      fontFamily: FONT_SERIF, fontSize: '18px', fontWeight: 700, color: EMERALD,
+      fontFamily: FONT_SERIF, fontSize: '18px', fontWeight: 700, color: '#000000',
       textTransform: 'uppercase', letterSpacing: '1px',
       borderBottom: `2px solid ${GOLD}66`, display: 'inline-block',
       padding: '2px 14px', margin: '6px 0 8px'
@@ -96,9 +96,9 @@ const getBody = (type, formData) => {
       </p>
       {courseBlock}
       <p style={{ fontFamily: FONT_SERIF, fontSize: '17px', color: GRAY_TEXT, margin: '10px 0 6px', lineHeight: 1.7 }}>
-        at <strong style={{ color: '#000000', fontWeight: 'bold' }}>JOD TECH</strong> during the period from{' '}
-        <strong style={{ color: '#000000', fontWeight: 'bold' }}>{fmtDate(startDate)}</strong> to{' '}
-        <strong style={{ color: '#000000', fontWeight: 'bold' }}>{fmtDate(endDate)}</strong>.
+        at <strong style={{ color: DARK_GREEN, fontWeight: 'bold' }}>JOD TECH</strong> during the period from{' '}
+        <strong style={{ color: DARK_GREEN, fontWeight: 'bold' }}>{fmtDate(startDate)}</strong> to{' '}
+        <strong style={{ color: DARK_GREEN, fontWeight: 'bold' }}>{fmtDate(endDate)}</strong>.
       </p>
     </>
   );
@@ -135,9 +135,9 @@ const PortraitCertificate = () => {
       <svg style={{ position: 'absolute', top: 0, right: 0, pointerEvents: 'none', zIndex: 0 }}
         width="280" height="210" viewBox="0 0 380 280" fill="none">
         <path d="M380 0H0C0 0 60 140 220 180C340 210 380 280 380 280V0Z"
-          fill="#0F766E" opacity="0.07" />
+          fill="#0F766E" opacity="0.15" />
         <path d="M380 0H40C40 0 100 120 230 160C330 185 380 240 380 240V0Z"
-          fill="#D4AF37" opacity="0.05" />
+          fill="#D4AF37" opacity="0.12" />
       </svg>
       <svg style={{
         position: 'absolute', bottom: 0, left: 0, pointerEvents: 'none', zIndex: 0,
@@ -145,7 +145,7 @@ const PortraitCertificate = () => {
       }}
         width="280" height="210" viewBox="0 0 380 280" fill="none">
         <path d="M380 0H0C0 0 60 140 220 180C340 210 380 280 380 280V0Z"
-          fill="#0F766E" opacity="0.07" />
+          fill="#0F766E" opacity="0.15" />
       </svg>
 
       {/* ── outer gold border ───────────────────────────────────────────── */}
@@ -162,7 +162,7 @@ const PortraitCertificate = () => {
       <img src={logo} alt="" style={{
         position: 'absolute', top: '50%', left: '50%',
         transform: 'translate(-50%,-50%)',
-        width: '600px', height: 'auto', opacity: 0.05,
+        width: '750px', height: 'auto', opacity: 0.08,
         zIndex: 0, pointerEvents: 'none',
       }} />
 
@@ -181,13 +181,13 @@ const PortraitCertificate = () => {
         }}>
           <img src={logo} alt="JOD TECH" style={{ width: '220px', height: 'auto', objectFit: 'contain', marginBottom: '8px' }} />
           <h1 style={{
-            fontFamily: FONT_SERIF, fontSize: '32px', fontWeight: 700, color: NAVY,
+            fontFamily: FONT_SERIF, fontSize: '32px', fontWeight: 700, color: EMERALD,
             letterSpacing: '1px', margin: '0 0 2px', textAlign: 'center'
           }}>
             JOD TECH
           </h1>
           <p style={{
-            fontFamily: FONT_SERIF, fontSize: '20px', fontWeight: 600, color: '#000',
+            fontFamily: FONT_SERIF, fontSize: '20px', fontWeight: 600, color: EMERALD,
             letterSpacing: '2px', margin: 0, textAlign: 'center'
           }}>
             IT Solution
@@ -198,13 +198,13 @@ const PortraitCertificate = () => {
         <div style={{
           flex: 1, display: 'flex', flexDirection: 'column',
           alignItems: 'center', justifyContent: 'flex-start',
-          textAlign: 'center', paddingTop: '16px', lineHeight: 1.5,
+          textAlign: 'center', paddingTop: '60px', lineHeight: 1.5,
           overflow: 'hidden',
         }}>
           {/* Title */}
           <h2 style={{
             fontFamily: FONT_SERIF, fontSize: `${fontSize.title}px`, fontWeight: 900,
-            color: EMERALD, textTransform: 'uppercase', letterSpacing: '4px',
+            color: '#000000', textTransform: 'uppercase', letterSpacing: '4px',
             margin: '0 0 10px'
           }}>
             {title}
@@ -250,7 +250,6 @@ const PortraitCertificate = () => {
               </p>
             </div>
           )}
-
           {/* Director Signature */}
           <div style={{ textAlign: 'center' }}>
             {directorSignature ? (
@@ -266,37 +265,38 @@ const PortraitCertificate = () => {
             </p>
           </div>
         </div>
-
-        {/* ── FOOTER ───────────────────────────────────────────────────── */}
-        <div style={{
-          background: `linear-gradient(135deg, ${NAVY} 0%, ${DARK_GREEN} 100%)`,
-          borderTop: `3px solid ${GOLD}`,
-          padding: '10px 20px',
-          display: 'flex', flexDirection: 'column', alignItems: 'center',
-          gap: '4px',
-        }}>
-          {[
-            { icon: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0-6 0', text: footer.address },
-            { icon: 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.21 12 19.79 19.79 0 0 1 1.14 3.32 2 2 0 0 1 3.11 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z', text: `${footer.phone} | ${footer.altPhone}` },
-            { icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z M22 6l-10 7L2 6', text: footer.email },
-            { icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z M2 12h20 M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z', text: footer.website },
-          ].map((row, i) => (
-            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
-                stroke={GOLD} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d={row.icon} />
-              </svg>
-              <span style={{
-                fontFamily: FONT_SERIF, fontSize: `${fontSize.footer}px`,
-                color: 'rgba(255,255,255,0.9)', fontWeight: i === 3 ? 600 : 400
-              }}>
-                {row.text}
-              </span>
-            </div>
-          ))}
-        </div>
-
       </div>
+
+      {/* ── FOOTER ───────────────────────────────────────────────────── */}
+      <div style={{
+        background: `linear-gradient(135deg, ${NAVY} 0%, ${DARK_GREEN} 100%)`,
+        borderTop: `3px solid ${GOLD}`,
+        padding: '10px 20px',
+        display: 'flex', flexDirection: 'column', alignItems: 'center',
+        gap: '4px',
+        zIndex: 30, // Ensure it's above borders if needed
+      }}>
+        {[
+          { icon: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0-6 0', text: footer.address },
+          { icon: 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.21 12 19.79 19.79 0 0 1 1.14 3.32 2 2 0 0 1 3.11 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z', text: `${footer.phone} | ${footer.altPhone}` },
+          { icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z M22 6l-10 7L2 6', text: footer.email },
+          { icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z M2 12h20 M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z', text: footer.website },
+        ].map((row, i) => (
+          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
+              stroke={GOLD} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d={row.icon} />
+            </svg>
+            <span style={{
+              fontFamily: FONT_SERIF, fontSize: `${fontSize.footer}px`,
+              color: 'rgba(255,255,255,0.9)', fontWeight: i === 3 ? 600 : 400
+            }}>
+              {row.text}
+            </span>
+          </div>
+        ))}
+      </div>
+
     </div>
   );
 };
