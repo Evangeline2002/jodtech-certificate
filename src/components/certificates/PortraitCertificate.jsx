@@ -132,7 +132,7 @@ const PortraitCertificate = () => {
     <div id="certificate-download" className="certificate-page" style={rootStyle}>
 
       {/* ── decorative corner waves ─────────────────────────────────────── */}
-      <svg style={{ position: 'absolute', top: 0, right: 0, pointerEvents: 'none', zIndex: 0 }}
+      <svg style={{ position: 'absolute', top: '10px', right: '10px', pointerEvents: 'none', zIndex: 0 }}
         width="280" height="210" viewBox="0 0 380 280" fill="none">
         <path d="M380 0H0C0 0 60 140 220 180C340 210 380 280 380 280V0Z"
           fill="#0F766E" opacity="0.15" />
@@ -140,7 +140,7 @@ const PortraitCertificate = () => {
           fill="#D4AF37" opacity="0.12" />
       </svg>
       <svg style={{
-        position: 'absolute', bottom: 0, left: 0, pointerEvents: 'none', zIndex: 0,
+        position: 'absolute', bottom: '10px', left: '10px', pointerEvents: 'none', zIndex: 0,
         transform: 'scaleX(-1) scaleY(-1)'
       }}
         width="280" height="210" viewBox="0 0 380 280" fill="none">
@@ -149,12 +149,12 @@ const PortraitCertificate = () => {
       </svg>
 
       {/* ── outer gold border ───────────────────────────────────────────── */}
-      <div style={{
-        position: 'absolute', inset: 0, border: `2px solid ${GOLD}`, zIndex: 20,
+      {/* <div style={{
+        position: 'absolute', inset: 0, border: `5px solid ${GOLD}`, zIndex: 20,
         pointerEvents: 'none'
-      }} />
+      }} /> */}
       <div style={{
-        position: 'absolute', inset: '6px', border: `1px solid ${EMERALD}44`, zIndex: 20,
+        position: 'absolute', inset: '12px', border: `4px solid ${EMERALD}`, zIndex: 20,
         pointerEvents: 'none'
       }} />
 

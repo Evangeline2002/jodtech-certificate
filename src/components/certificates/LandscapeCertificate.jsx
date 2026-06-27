@@ -106,7 +106,7 @@ const LandscapeCertificate = () => {
   return (
     <div id="certificate-download" className="relative overflow-hidden flex flex-col" style={{ width: '1123px', height: '794px', background: 'white' }}>
       {/* Decorative corner elements */}
-      <svg className="absolute top-0 right-0" width="300" height="220" viewBox="0 0 380 280" fill="none">
+      <svg className="absolute top-[10px] right-[10px]" width="300" height="220" viewBox="0 0 380 280" fill="none">
         <path d="M380 0H0C0 0 60 140 220 180C340 210 380 280 380 280V0Z" fill="url(#emeraldGrad)" opacity="0.16" />
         <path d="M380 0H40C40 0 100 120 230 160C330 185 380 240 380 240V0Z" fill="url(#goldGrad)" opacity="0.14" />
         <defs>
@@ -114,7 +114,7 @@ const LandscapeCertificate = () => {
           <linearGradient id="goldGrad" x1="0" y1="0" x2="380" y2="280"><stop stopColor="#D4AF37" /><stop offset="1" stopColor="#B8860B" /></linearGradient>
         </defs>
       </svg>
-      <svg className="absolute bottom-0 left-0 scale-x-[-1] scale-y-[-1]" width="300" height="220" viewBox="0 0 380 280" fill="none">
+      <svg className="absolute bottom-[10px] left-[10px] scale-x-[-1] scale-y-[-1]" width="300" height="220" viewBox="0 0 380 280" fill="none">
         <path d="M380 0H0C0 0 60 140 220 180C340 210 380 280 380 280V0Z" fill="url(#emeraldGrad2)" opacity="0.16" />
         <defs>
           <linearGradient id="emeraldGrad2" x1="0" y1="0" x2="380" y2="280"><stop stopColor="#0F766E" /><stop offset="1" stopColor="#065F46" /></linearGradient>
@@ -122,8 +122,8 @@ const LandscapeCertificate = () => {
       </svg>
 
       {/* Border */}
-      <div className="absolute inset-0 pointer-events-none" style={{ border: '2px solid #D4AF37', zIndex: 20 }} />
-      <div className="absolute inset-[6px] pointer-events-none" style={{ border: '1px solid rgba(15, 118, 110, 0.3)', zIndex: 20 }} />
+      {/* <div className="absolute inset-0 pointer-events-none" style={{ border: '5px solid #D4AF37', zIndex: 20 }} /> */}
+      <div className="absolute inset-[12px] pointer-events-none" style={{ border: '4px solid rgba(15, 118, 110, 0.9)', zIndex: 20 }} />
 
       {/* Watermark Logo */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">

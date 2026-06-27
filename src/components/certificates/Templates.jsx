@@ -9,7 +9,7 @@ const formatDate = (dateStr) => {
 
 const CornerWaves = () => (
   <>
-    <svg className="wave-top-right" viewBox="0 0 380 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className="wave-top-right" style={{ position: 'absolute', top: '10px', right: '10px', width: '300px', height: 'auto', pointerEvents: 'none', zIndex: 0 }} viewBox="0 0 380 280" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M380 0H0C0 0 60 140 220 180C340 210 380 280 380 280V0Z" fill="url(#emeraldGrad)" opacity="0.08" />
       <path d="M380 0H40C40 0 100 120 230 160C330 185 380 240 380 240V0Z" fill="url(#goldGrad)" opacity="0.06" />
       <path d="M380 0H80C80 0 140 100 240 140C320 165 380 200 380 200V0Z" fill="url(#emeraldGrad)" opacity="0.04" />
@@ -24,7 +24,7 @@ const CornerWaves = () => (
         </linearGradient>
       </defs>
     </svg>
-    <svg className="wave-bottom-left" viewBox="0 0 380 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className="wave-bottom-left" style={{ position: 'absolute', bottom: '10px', left: '10px', width: '300px', height: 'auto', pointerEvents: 'none', zIndex: 0, transform: 'rotate(180deg)' }} viewBox="0 0 380 280" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M380 0H0C0 0 60 140 220 180C340 210 380 280 380 280V0Z" fill="url(#emeraldGrad2)" opacity="0.08" />
       <path d="M380 0H40C40 0 100 120 230 160C330 185 380 240 380 240V0Z" fill="url(#goldGrad2)" opacity="0.06" />
       <path d="M380 0H80C80 0 140 100 240 140C320 165 380 200 380 200V0Z" fill="url(#emeraldGrad2)" opacity="0.04" />
@@ -120,8 +120,8 @@ const CertificateLayout = ({ children, title, fontSize }) => {
               <p className="text-[10px] font-bold text-jod-emerald uppercase tracking-[0.15em] mb-2">Digitally Signed By</p>
               <div className="flex items-center justify-end gap-1 mb-1">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-jod-emerald">
-                  <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
                 </svg>
                 <span className="text-[10px] text-jod-emerald font-semibold">Verified</span>
               </div>
@@ -145,29 +145,29 @@ const CertificateLayout = ({ children, title, fontSize }) => {
           <div className="px-6 py-3 flex flex-wrap justify-between items-center text-[9px] gap-x-6 gap-y-1" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
             <div className="flex items-center gap-1.5">
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-jod-premium-gold">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
               </svg>
               <span>No.10, Chitharanjan St, Chinna Chokkikulam, Madurai – 625002</span>
             </div>
             <div className="flex items-center gap-1.5">
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-jod-premium-gold">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
               <span>+91 96298 72195 | +91 78717 70070</span>
             </div>
             <div className="flex items-center gap-1.5">
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-jod-premium-gold">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
               </svg>
               <span>support@jodtech.in</span>
             </div>
             <div className="flex items-center gap-1.5">
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-jod-premium-gold">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="2" y1="12" x2="22" y2="12"/>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
               </svg>
               <span className="font-semibold">www.jodtech.in</span>
             </div>
